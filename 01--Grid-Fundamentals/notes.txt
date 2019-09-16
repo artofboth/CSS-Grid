@@ -1,0 +1,12 @@
+Day One / 17th Sept 2019 
+
+CSS Grid Fundamentals
+
+• The idea behind a div is to display any element in the page as a grid, and slice it into columns and rows, so you can place elements in any arbitrary location in the page. 
+
+• This enables much better control over our layout without using all the hacks that we used to use to position stuff. 
+
+• When you display grid a container, you make every direct child element of that container into a grid item. 
+
+• You can then slice the grid into whatever number of columns and rows you want with various methods. 
+
