@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:300,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../00--Assets/style.css">
+    <title></title>
+</head>
+
+<body>
+<div class="container">
+
+  <div class="item">
+    <h2>17.09.2019</h2>
+    <h1>Grid Basics</h1>
+  </div>
+  
+  <div class="item">
+    <h3>01 Grid Fundamentals</h3>
+    <p>The idea behind a div is to display any element in the page as a grid, and slice it into columns and rows, so you can place elements in any arbitrary location in the page. </p>
+        
+    <p>This enables much better control over our layout without using all the hacks that we used to use to position stuff. </p>
+
+    <p>When you display grid a container, you make every direct child element of that container into a grid item. </p>
+
+    <p>You can then slice the grid into whatever number of columns and rows you want with various methods. </p>
+  </div>
+
+  <div class="item">
+    <h3>02 Developer Tools</h3>
+    <p>On Firefox's inspect option, you can see your grid sections highlighted, which is super helplful for placing objects in it. </p>
+        
+    Tracks are not numbered by the column itself, but by the lines that start and stop them.
+  </div>
+
+  <div class="item">
+    <h3>03 Implicit vs Explicit Tracks</h3>
+    <p>
+      Tracks that you've explicitly declared in the CSS are (surprise) explicit, and the ones that are created automatically are implicit. You can use <span class="code">grid-auto-rows</span> or <span class="code">grid-auto-columns</span> to determine how big those extra sections will be. 
+
+      <span class="code block">
+          <br>display: grid;
+          <br>grid-template-columns: 400px 200px;
+          <br>grid-template-rows: 1fr 1fr;
+          <br>grid-auto-rows: 500px;
+    </span>
+    </p>
+
+  </div>
+
+  <div class="item">
+      <h3>04 Autoflow</h3>
+      <p>
+        Determines wether to include additional content as columns (instead of the default option, rows)using <span class="code">grid-auto-flow: column</span>.
+      </p>
+
+    </div>
+
+</div>
+
+
+
+<style>
+.container{
+  display:grid;
+  grid-gap: 1rem;
+  
+}
+
+.item{
+  padding: 1rem;
+}
+</style>
+
+</body>
+
+</html>

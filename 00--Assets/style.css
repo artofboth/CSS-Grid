@@ -2,7 +2,8 @@
     /*I like to list our colours as RGB values so I can access them with different opacities if I need to */
     --dark: 0, 0, 0;
     --light: 240, 240, 245;
-    --accent: 255, 128, 170;
+    --accent: 255, 183, 82;
+
 }
 
 html {
@@ -10,13 +11,10 @@ html {
     box-sizing: border-box;
     
     /* A system font stack so things load nice and quick! */
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-      Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-
-    font-weight: 100;
-    font-size: 2rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.2rem;
     color: rgba(var(--light), 1);
-    text-shadow: 0 0 5px rgba(var(--light), 0.5);
+
   }
 
 /*
@@ -37,23 +35,47 @@ body {
     background-position: top center;
     min-height: calc(100vh - 100px);
     margin: 50px;
-    letter-spacing: 0.2rem;
   }
 
   .item {
-  /* We center the contents of these items. */
   display: grid;
-  justify-content: center;
-  align-items: center;
+  /*justify-content: center;
+  align-items: center;*/
   border-radius: 5px;
   border: 1px solid rgba(var(--light),0.1);
-  font-size: 2rem;
-  background-color: rgba(var(--dark), 0.7);
+  background-color: rgba(var(--dark), 0.8);
+  padding: 1rem;
 }
 
-.item p {
-  margin: 0 0 5px 0;
+
+
+h1, h2, h3, h4{
+text-transform: uppercase;
+letter-spacing: 0.2rem;
+text-shadow: 0 0 5px rgba(var(--light), 0.5);
+margin: 0 0 1rem 0;
 }
+
+p{
+    letter-spacing: 0.02rem;
+    margin: 0 0 1rem 0;
+    line-height: 1.5rem;
+    font-weight: 300;
+}
+
+.code{
+
+    font-family: 'Ubuntu Mono', monospace;
+    color: rgb(var(--accent));
+
+
+}
+
+.block{
+    display: block;
+
+}
+
   
 
 
