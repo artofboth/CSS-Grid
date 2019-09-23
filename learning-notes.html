@@ -20,7 +20,7 @@
   
   <div class="item">
     <h3>01 Grid Fundamentals</h3>
-    <p>The idea behind a div is to display any element in the page as a grid, and slice it into columns and rows, so you can place elements in any arbitrary location in the page. </p>
+    <p>The idea behind this is to display any element in the page as a grid, and slice it into columns and rows, so you can place elements in any arbitrary location in the page. </p>
         
     <p>This enables much better control over our layout without using all the hacks that we used to use to position stuff. </p>
 
@@ -77,6 +77,53 @@
   
       </div>
 
+      <div class="item">
+        <h3>06 Sizing Grid Items</h3>
+        <p> 
+          Throught something called "spanning", we can explicitly tell our items to be a specific width.
+        </p>
+        <p>
+          <span class="block">
+           .itemName{
+            <br>  grid-column: span 2;
+            <br>grid-row: span 2;
+            <br>}
+          </span>
+        </p>
+      </div>
+
+      <div class="item">
+        <h3>07 Placing Grid Items</h3>
+
+        <p>When you say <span>span 2</span>, as above, you are implicitly telling your element to start at a certain line of the grid. You can do so explicitly like below</p>
+
+        <p>
+          <span class=" block">
+          .itemName{
+          <br>grid-column-start: 2;
+          <br>grid-column-end: 5;
+          <br>}
+          </span>
+       </p>
+
+        <p>
+          Or using the shorthand <span>grid-colum:2/5</span>
+        </p>
+
+        <p>
+            Or only specifying its start or finish point and how many columns to span with <span>grid-colum:2/ span 5</span>
+          </p>
+
+
+        <p>
+            You can also tell it to start at the first track and end at the last track by using <span>grid-colum: 1/ -1</span>
+          </p>
+
+        <p>
+          The same can be applied to the rows, except for the last instance: you have to explicitly establish the number of rows for that to work.
+        </p>
+      </div>
+
 </div>
 
 
@@ -85,11 +132,13 @@
 .container{
   display:grid;
   grid-gap: 1rem;
+  grid-template-rows:auto;
   
 }
 
 .item{
   padding: 1rem;
+  
 }
 </style>
 

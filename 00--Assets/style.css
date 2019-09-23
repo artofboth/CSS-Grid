@@ -63,7 +63,7 @@ p{
     font-weight: 300;
 }
 
-.code{
+span{
 
     font-family: 'Ubuntu Mono', monospace;
     color: rgb(var(--accent));
