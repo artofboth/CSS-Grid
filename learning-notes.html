@@ -6,7 +6,7 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:300,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../00--Assets/style.css">
+  <link rel="stylesheet" href="00--Assets/style.css">
     <title></title>
 </head>
 
@@ -58,6 +58,24 @@
       </p>
 
     </div>
+
+    <div class="item">
+        <h3>05 Sizing Tracks</h3>
+        <p>
+          If you size your columns using percentages, it'll add those percentages to the gap size you've chosen. So it's not a great idea to add your percentages up to 100%
+
+          You can instead use the <span class="code">fr</span> – "fractional units" divide the amount of space left after all the elements have been laid out. You can think of fr as meaning "free space" as well.  
+          
+          <span class="code">grid-template-columns: 200px 1fr 1fr;</span> will establish one column with 200px, and then divide the remaining space between the two other columns
+        </p>
+
+        <p>By default the height of the rows is determined automatically by the height of whatever content is inside them. However, if you give the  grid a <span class="code">height</span>, you can then distribute rows evenly as you do columns: <span class="code">grid-template-rows: 1fr, 1fr;</span></p>
+
+        <p>
+          <span class="code">auto</span> will just adjust the size of the column to the maximum width of the content.
+        </p>
+  
+      </div>
 
 </div>
 
