@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:300,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="00_Assets/style.css">
+  <title></title>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="item large">
+      <h2>17.09.2019</h2>
+      <h1>Grid Basics</h1>
+      <p>The idea behind this is to display any element in the page as a grid, and slice it into columns and rows, so
+        you can place elements in any arbitrary location in the page. </p>
+
+      <p>This enables much better control over our layout without using all the hacks that we used to use to position
+        stuff. </p>
+
+      <p>When you display grid a container, you make every direct child element of that container into a grid item. </p>
+
+      <p>You can then slice the grid into whatever number of columns and rows you want with various methods. </p>
+    </div>
+
+    <div class="item">
+      <h3>Developer Tools</h3>
+      <p>On Firefox's inspect option, you can see your grid sections highlighted, which is super helplful for placing
+        objects in it. </p>
+
+      Tracks are not numbered by the column itself, but by the lines that start and stop them.
+    </div>
+
+    <div class="item">
+      <h3>Implicit vs Explicit Tracks</h3>
+      <p>
+        Tracks that you've explicitly declared in the CSS are (surprise) explicit, and the ones that are created
+        automatically are implicit. You can use <span class="code">grid-auto-rows</span> or <span
+          class="code">grid-auto-columns</span> to determine how big those extra sections will be.
+
+        <span class="code block">
+          <br>display: grid;
+          <br>grid-template-columns: 400px 200px;
+          <br>grid-template-rows: 1fr 1fr;
+          <br>grid-auto-rows: 500px;
+        </span>
+      </p>
+
+    </div>
+
+    <div class="item">
+      <h3>Autoflow</h3>
+      <p>
+        You can determine wether to include additional content as columns (instead of the default option, rows) using
+        <span class="code">grid-auto-flow: column</span>.
+      </p>
+      <p>To "break" the natural order of items on the grid and just place items whenever they will fit (such as in a
+        masonry effect) you simply use <span>grid-auto-flow: dense;</span></p>
+
+    </div>
+
+    <div class="item large">
+      <h3>Sizing Tracks</h3>
+      <p>
+        If you size your columns using percentages, it'll add those percentages to the gap size you've chosen. So it's
+        not a great idea to add your percentages up to 100%
+
+        You can instead use the <span class="code">fr</span> – "fractional units" divide the amount of space left after
+        all the elements have been laid out. You can think of fr as meaning "free space" as well.
+
+        <span class="code">grid-template-columns: 200px 1fr 1fr;</span> will establish one column with 200px, and then
+        divide the remaining space between the two other columns
+      </p>
+
+      <p>By default the height of the rows is determined automatically by the height of whatever content is inside them.
+        However, if you give the grid a <span class="code">height</span>, you can then distribute rows evenly as you do
+        columns: <span class="code">grid-template-rows: 1fr, 1fr;</span></p>
+
+      <p>
+        <span class="code">auto</span> will just adjust the size of the column to the maximum width of the content.
+      </p>
+
+    </div>
+
+    <div class="item">
+      <h3>Sizing Grid Items</h3>
+      <p>
+        Throught something called "spanning", we can explicitly tell our items to be a specific width.
+      </p>
+      <p>
+        <span class="block">
+          .itemName{
+          <br> grid-column: span 2;
+          <br>grid-row: span 2;
+          <br>}
+        </span>
+      </p>
+    </div>
+
+    <div class="item large">
+      <h3>Placing Grid Items</h3>
+
+      <p>When you say <span>span 2</span>, as above, you are implicitly telling your element to start at a certain line
+        of the grid. You can do so explicitly like below</p>
+
+      <p>
+        <span class=" block">
+          .itemName{
+          <br>grid-column-start: 2;
+          <br>grid-column-end: 5;
+          <br>}
+        </span>
+      </p>
+
+      <p>
+        Or using the shorthand <span>grid-colum:2/5</span>
+      </p>
+
+      <p>
+        Or only specifying its start or finish point and how many columns to span with <span>grid-colum:2/ span 5</span>
+      </p>
+
+
+      <p>
+        You can also tell it to start at the first track and end at the last track by using <span>grid-colum: 1/
+          -1</span>
+      </p>
+
+      <p>
+        The same can be applied to the rows, except for the last instance: you have to explicitly establish the number
+        of rows for that to work.
+      </p>
+    </div>
+
+    <div class="item large">
+      <h3>08 auto-fit, auto-fill and minmax</h3>
+
+      <p>
+        We can establish the number of columns explicitly through <span>grid-template-columns: repeat(5, 150px)</span>
+        for example.
+      </p>
+      <p>
+        To let the browser select the number of columns automatically, we use <span>auto-fill</span> and
+        <span>auto-fit</span>.
+      </p>
+      <p>
+        <span>
+          .container{
+          <br>display: grid;
+          <br>grid-template-columns: repeat (auto-fill, 150px);
+          <br>}
+        </span>
+      </p>
+
+      <p>
+        The difference between <span>auto-fit </span>and <span>auto-fill</span> becomes more evident when using
+        <span>minmax</span>, which has actually replaced the need for many media queries. Whereas <span>auto-fill</span>
+        creates as many columns as possible to fill the width of the browser, <span>auto-fit</span> will streatch the
+        existing columns as much as needed to fit that width.
+      </p>
+
+      <p>
+        <span class="block">
+          .container{
+          <br> display: grid;
+          <br>grid-template-columns: repeat (auto-fit, minmax(150px, 1fr))</span>
+      </p>
+
+      <p>If you want single columns to be automatically resized, you can use <span>grid-template-columns: auto, 150px,
+          150px;</span>. You can also use <span>fit-content(500px)</span>, where the value between parenthesis ("clamp
+        value") is the maximum width the column should reach.
+    </div>
+
+    <div class="item large">
+      <h3>Grid Template Areas</h3>
+      <p>We can name each area of our grid explicitly, with each set of quotes representing a row. We can then assign
+        items to whole areas without worrying about counting lines etc. You can now easily redefine your template areas
+        using media queries. You can also define your columns and rows without setting them up beforehand. </p>
+
+      <p><span class="block">
+          .container{
+          <br>display:grid;
+          <br>grid-template-columns: 1fr 500px 1fr;
+          <br>grid-template-rows: 150px 150px 100px;
+          <br>grid-template-areas: "sidebar-1 content s1debar-2"
+          <br>"sidebar-1 content s1debar-2"
+          <br>"footer footer footer"
+          <br>}
+        </span></p>
+
+      <p><span class="block">
+          .footer{
+          <br>grid-area: footer;
+          <br>}</span></p>
+
+      <p>You can also use the names of the lines of each area to determine where the column should start and end:</p>
+
+      <p><span class="block">
+          .itemName{
+          <br>grid-column: areaName-start / areaName-end;
+          <br>grid-row-end: areaName-end;
+          <br>}
+        </span></p>
+
+      <hr>
+      <h3>Naming Lines</h3>
+      <p> You can name your lines as well simply by inserting them into your template with square brackets:
+        <br><span>grid-template-columns: [line1] column1 [line2] column2 [line3]...;
+          <br>grid-template-rows: [line1] row1 [line2] row2 [line3]...;
+        </span>
+      </p>
+      <p>You can assign more than one value to each line, as they are both the end of a certain area and the start of a
+        new area, which can make it much easier to position things: <span>row1 [row1end row2start] row2</span>.</p>
+    </div>
+
+    <div class="item">
+      <h3>Grid Alignment</h3>
+      <p>Sometimes even if your design isn't based on a grid layout, it's still useful for centering things. Remember
+        that: <span>justify</span> ones are along the x-axis (row-axis) , and <span>align</span> are along the y-axis
+        (column-axis). It's best to look up the reference when using them. </p>
+    </div>
+
+    <div class="item">
+      <h3>Order</h3>
+      <p>You can give each item of your grid an order number (<span>order: 1;</span>) and chnange that with media
+        queries to rearrange them in different screen sizes. Be aware however that this will change the order in which a
+        screen reader would read them.</p>
+    </div>
+
+
+
+  </div>
+
+
+
+  <style>
+    .container {
+      display: grid;
+      grid-gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-auto-flow: dense;
+
+
+    }
+
+    .item {
+      padding: 1rem;
+      align-content: center;
+    }
+
+    .large {
+      grid-column-start: span 2;
+    }
+  </style>
+
+</body>
+
+</html>
