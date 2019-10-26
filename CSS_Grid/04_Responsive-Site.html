@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="./04--Responsive-Site.css">
+  <title>Responsive Website!</title>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="top">
+      <header class="hero">
+        <h1>Unicorns Cupcakes</h1>
+        <p>Yummy and beautiful.</p>
+      </header>
+      <div class="cta cta1">
+        <p class="price">$1.99</p>
+        <p>Cupcakes</p>
+      </div>
+      <div class="cta cta2">
+        <p class="price">$3.99</p>
+        <p>Kombucha</p>
+      </div>
+
+    </div>
+    <nav class="menu">
+      <button aria-expanded="false" aria-controls="menu-list">
+        <span class="open">☰</span>
+        <span class="close">×</span>
+        Menu
+      </button>
+      <ul id="menu-list">
+        <li>
+          <a href="">Cupcakes</a>
+        </li>
+        <li>
+          <a href="">Coffees</a>
+        </li>
+        <li>
+          <a href="">Cocktails</a>
+        </li>
+        <li>
+          <a href="">Cakes</a>
+        </li>
+        <li>
+          <a href="">Reservations</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="features">
+      <div class="feature">
+        <h3>Cupcakes</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, assumenda.</p>
+      </div>
+      <div class="feature">
+        <h3>Coffee</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, assumenda.</p>
+      </div>
+      <div class="feature">
+        <h3>Cakes</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, assumenda.</p>
+      </div>
+      <div class="feature">
+        <h3>Music</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, assumenda.</p>
+      </div>
+    </section>
+
+    <section class="about">
+      <img src="https://images.unsplash.com/photo-1523975041633-a62b4a500f7e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80" alt="Rainbow colours on sidewalk" class="about__mockup">
+      <div class="about__details">
+        <h2>Even the sidewalk is inspirational</h2>
+        <p>The whole world is full of the whole spectrum of colour.</p>
+        <p>All you have to do is look around.</p>
+        <button>Read more →</button>
+      </div>
+    </section>
+
+
+    <section class="gallery">
+      <h2>Instant Grams</h2>
+      <img src="https://source.unsplash.com/random/201x201" alt="">
+      <img src="https://source.unsplash.com/random/202x202" alt="">
+      <img src="https://source.unsplash.com/random/203x203" alt="">
+      <img src="https://source.unsplash.com/random/204x204" alt="">
+      <img src="https://source.unsplash.com/random/205x205" alt="">
+      <img src="https://source.unsplash.com/random/206x206" alt="">
+      <img src="https://source.unsplash.com/random/207x207" alt="">
+      <img src="https://source.unsplash.com/random/207x208" alt="">
+      <img src="https://source.unsplash.com/random/207x209" alt="">
+      <img src="https://source.unsplash.com/random/207x210" alt="">
+    </section>
+  </div>
+
+  <script>
+    const navButton = document.querySelector('button[aria-expanded]');
+
+    function toggleNav({target}){
+      const expanded = target.getAttribute('aria-expanded') === 'true' || false;
+      
+      navButton.setAttribute('aria-expanded', !expanded);
+    
+    }
+
+    navButton.addEventListener('click', toggleNav);
+  </script>
+  
+</body>
+
+</html>

@@ -1,0 +1,223 @@
+body {
+  background: url('https://images.unsplash.com/photo-1529767367174-535729449d71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+  background-size: cover;
+  font-size: 1.5rem;
+
+  font-family:Futura, Helvetica, sans-serif;
+
+
+}
+
+button {
+  background: pink;
+  border: 0;
+  padding: 10px 20px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.wrapper{
+  display: grid;
+  grid-gap: 2rem;
+}
+
+.top{
+  display:grid;
+  grid-template-areas:
+  "hero hero cta1"
+  "hero hero cta2";
+  grid-gap: 2rem;
+}
+
+.hero{
+
+  grid-area: hero;
+  min-height: 400px;
+
+  background: white url('https://images.unsplash.com/photo-1519869325930-281384150729?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');
+  background-size: cover;
+  background-position: top left;
+  border: 2rem solid white;
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+
+}
+
+.hero > * {
+  background: white;
+  display: block;
+  padding: 1rem;
+
+
+}
+
+.cta{
+  background: aqua;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+}
+
+.cta p{ margin: 0;}
+
+.cta1{
+  grid-area: cta1;
+}
+
+.cta2{
+  grid-area: cta2;
+}
+
+.price{
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.menu ul{
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 1rem;
+  font-size: 1rem;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+
+  margin: 1rem 0 1rem 0;
+}
+
+.menu a{
+  color: white;
+  text-decoration: none;
+  background: purple;
+  text-transform: uppercase;
+  list-style-type: none;
+  display: block;
+
+}
+
+.menu a:hover{
+  background: aqua;
+  color: purple;
+  
+}
+
+[aria-controls = "menu-list"]{
+ display: none;
+}
+
+.features{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1rem;
+}
+
+.feature{
+  background: white;
+  padding: 1rem;
+
+}
+
+.about{
+  background:white;
+  display: grid;
+  padding: 1rem;
+  grid-gap: 1rem;
+  grid-template-columns: 400px 1fr;
+  align-items: center;
+}
+
+.gallery{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1rem;
+}
+
+.gallery h2{
+  grid-column: 1 / -1;
+  text-align: center;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  grid-gap: 1rem;
+}
+
+.gallery h2:before, .gallery h2:after{
+  display: block;
+  content: '';
+  height: 10px;
+  background: linear-gradient(to var(--direction, left), pink, transparent);
+
+}
+
+.gallery h2:after{
+  --direction : right;
+
+}
+
+.gallery img{
+  width: 100%;
+}
+
+@media(max-width: 700px){
+  .top{
+    grid-template-areas: "hero hero "
+    "cta1 cta2"
+  }
+
+  .about{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width: 500px){
+  .top{
+    grid-template-areas:
+    "hero"
+    "cta1"
+    "cta2";
+  }
+}
+
+@media(max-width: 1000px){
+  .menu{ 
+    order: -1;
+    perspective: 800px;}
+
+  [aria-controls="menu-list"]{
+    display: block;
+  }
+  .menu ul{
+    overflow: hidden;
+    max-height: 0;
+    transform: rotateX(90deg);
+    transition: all 0.5s;
+  }
+
+  [aria-expanded="true"] ~ ul{
+    display: grid;
+    max-height: 500px;
+    transform: rotateX(0);
+  }
+
+  [aria-expanded="false"] .close{
+    display: none;
+  }
+
+  [aria-expanded="true"] .open{
+    display: none;
+  }
+
+  [aria-expanded="true"] .close{
+    display: inline-block;
+  }
+}
